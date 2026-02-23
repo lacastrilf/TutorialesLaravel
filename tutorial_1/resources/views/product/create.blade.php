@@ -14,6 +14,7 @@
                         @endforeach
                     </ul>
                     @endif
+                    
                     <form method="POST" action="{{ route('product.save') }}">
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />

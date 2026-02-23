@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <center>
-            <p class="lead">{{$message}}</p>
+            <p class="lead">Product created successfully!</p>
         </center>
     </div>
 </div>
