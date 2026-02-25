@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 
 class ProductController extends Controller
 {
@@ -14,8 +15,6 @@ class ProductController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Products - Online Store';
-        $viewData['subtitle'] = 'List of products';
         $viewData["products"] = Product::all();
 
         return view('product.index')->with('viewData', $viewData);
@@ -23,14 +22,12 @@ class ProductController extends Controller
 
     public function show(string $id): View|RedirectResponse
     {
-        if ($id < 1 || $id > count(Product::all())) {
-            return redirect()->route('home.index');
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->route('product.index');
         }
 
         $viewData = [];
-        $product = Product::findOrFail($id);
-        $viewData['title'] = $product['name'].' - Online Store';
-        $viewData['subtitle'] = 'Product information';
         $viewData['product'] = $product;
 
         return view('product.show')->with('viewData', $viewData);

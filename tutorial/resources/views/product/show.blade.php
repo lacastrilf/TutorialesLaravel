@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('subtitle', "Product information")
 @section('content')
 <div class="card mb-3">
     <div class="row g-0">

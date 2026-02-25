@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('subtitle', "List of products")
 @section('content')
 <div class="row">
     @foreach ($viewData["products"] as $product)
