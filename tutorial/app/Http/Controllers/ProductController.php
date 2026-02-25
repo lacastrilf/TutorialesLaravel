@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
-use App\Models\Product;
-use GuzzleHttp\Handler\Proxy;
 
 class ProductController extends Controller
 {
-
     public function index(): View
     {
         $viewData = [];
-        $viewData["products"] = Product::all();
+        $viewData['products'] = Product::all();
 
         return view('product.index')->with('viewData', $viewData);
     }
@@ -23,7 +21,7 @@ class ProductController extends Controller
     public function show(string $id): View|RedirectResponse
     {
         $product = Product::find($id);
-        if (!$product) {
+        if (! $product) {
             return redirect()->route('product.index');
         }
 
@@ -41,14 +39,14 @@ class ProductController extends Controller
         return view('product.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request):RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required|numeric|gt:0',
         ])->validate();
 
-        Product::create($request->only(["name","price"]));
+        Product::create($request->only(['name', 'price']));
 
         return back();
     }

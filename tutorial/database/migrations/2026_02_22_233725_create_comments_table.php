@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -13,8 +12,7 @@ class Comment extends Model
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['description'] - string - contains the comment description
      * $this->product - Product - contains the associated Product
-    */
-
+     */
     protected $fillable = ['description', 'product_id'];
 
     public function getId(): int
@@ -62,4 +60,3 @@ class Comment extends Model
         $this->product = $product;
     }
 }
-
