@@ -26,6 +26,7 @@
                     <a class="nav-link active" href="{{ route('home.contact') }}">Contact</a>
                     <a class="nav-link active" href="{{ route('product.index') }}">Product</a>
                     <a class="nav-link active" href="{{ route('product.create') }}">Create</a>
+                    <a class="nav-link active" href="{{ route('cart.index') }}">Cart</a>
                 </div>
             </div>
         </div>
