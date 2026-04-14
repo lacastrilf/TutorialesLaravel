@@ -15,3 +15,4 @@ Route::get('/v2/products/{id}', 'App\Http\Controllers\Api\ProductApiControllerV2
 
 Route::get('/v3/products', 'App\Http\Controllers\Api\ProductApiControllerV3@index')->name('api.v3.product.index');
 Route::get('/v3/products/paginate', 'App\Http\Controllers\Api\ProductApiControllerV3@paginate')->name('api.v3.product.paginate');
+Route::post('/products/create', 'App\Http\Controllers\Api\CreateProductApiController@save')->name('api.product.save');
